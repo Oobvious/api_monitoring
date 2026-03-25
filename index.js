@@ -1,62 +1,31 @@
 const express = require("express")
-const port = process.env.PORT || 5000
-
-const os = require('os')
 
 const app = express()
+const port = process.env.PORT || 5000
 
-app.get("/api/v1/", (req, res) =>{
-    res.status(200).send("Hello la team")
-})
+// Import routes
+const healthRoute = require("./routes/health")
+const cpuRoute = require("./routes/cpu")
+const memoryRoute = require("./routes/memory")
+const diskRoute = require("./routes/disk")
+const allRoute = require("./routes/all")
 
-app.get("/api/v1/health", (req, res) => {
-    try {
-        const data = {
-            status : "UP",
-            hostname: os.hostname(),
-            OS : os.type(),
-        }
+// Use routes
+app.use("/api/v1/health", healthRoute)
+app.use("/api/v1/cpu", cpuRoute)
+app.use("/api/v1/memory", memoryRoute)
+app.use("/api/v1/disk", diskRoute)
+app.use("/api/v1/all", allRoute)
 
-        res.status(200).json(data)
-    }
-    catch (error) {
-        res.status(500).json({
-        error: "Unable to read system health",
-        status: 500,
+// 404
+app.use((req, res) => {
+    res.status(404).json({
+        error: "Endpoint not found",
+        status: 404,
         checked_at: new Date().toString()
-        })
-    }
-})
-
-app.get("/api/v1/cpu", (req, res) =>{
-    res.status(200).send("Hello la team")
-})
-
-app.get("/api/v1/memory", (req, res) => {
-    try {
-        const data = {
-        memory : process.memoryUsage()
-        }
-
-        res.status(200).json(data)
-    }
-    catch (error) {
-        res.status(500).json({
-        error: "Unable to read system memory",
-        status: 500,
-        checked_at: new Date().toString()
-        })
-    }
-})
-
-app.get("/api/v1/disk", (req, res) =>{
-    res.status(200).send("Hello la team")
-})
-
-app.get("/api/v1/all", (req, res) =>{
-    res.status(200).send("Test")
+    })
 })
 
 app.listen(port, () => {
-    console.log("Server on")
+    console.log(`Server running on port ${port}`)
 })
