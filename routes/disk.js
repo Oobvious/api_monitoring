@@ -1,3 +1,13 @@
+/**
+ * @swagger
+ * /api/v1/disk:
+ *   get:
+ *     summary: Utilisation disque
+ *     tags: [Disk]
+ *     responses:
+ *       200:
+ *         description: Infos disque
+ */
 const express = require("express")
 const si = require("systeminformation")
 

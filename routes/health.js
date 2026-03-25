@@ -1,3 +1,23 @@
+/**
+ * @swagger
+ * /api/v1/health:
+ *   get:
+ *     summary: État général du serveur
+ *     tags: [Health]
+ *     responses:
+ *       200:
+ *         description: Serveur opérationnel
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: "UP"
+ *               hostname: "server-prod-01.local"
+ *               os: "linux"
+ *               platform: "ubuntu"
+ *               checked_at: "Sun, 22 Jan 2026 22:29:16 CET"
+ *       500:
+ *         description: Erreur serveur
+ */
 const express = require("express")
 const os = require("os")
 

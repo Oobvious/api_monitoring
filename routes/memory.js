@@ -1,3 +1,21 @@
+/**
+ * @swagger
+ * /api/v1/memory:
+ *   get:
+ *     summary: Utilisation mémoire
+ *     tags: [Memory]
+ *     responses:
+ *       200:
+ *         description: Infos mémoire
+ *         content:
+ *           application/json:
+ *             example:
+ *               total_gb: 32
+ *               used_gb: 22
+ *               free_gb: 10
+ *               used_percent: 70.94
+ *               checked_at: "Sun, 22 Jan 2026 22:32:35 CET"
+ */
 const express = require("express")
 const si = require("systeminformation")
 
