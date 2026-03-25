@@ -3,7 +3,7 @@ const express = require("express")
 const app = express()
 const port = process.env.PORT || 5000
 
-const swaggerUi = require("swagger-ui-express")g
+const swaggerUi = require("swagger-ui-express")
 const swaggerSpec = require("./swagger")
 
 // Import des routes
