@@ -12,6 +12,7 @@ const cpuRoute = require("./routes/cpu")
 const memoryRoute = require("./routes/memory")
 const diskRoute = require("./routes/disk")
 const allRoute = require("./routes/all")
+const incidentsRoute = require("./routes/incidents")
 
 // Utilisation des routes
 app.use("/api/v1/health", healthRoute)
@@ -20,6 +21,7 @@ app.use("/api/v1/memory", memoryRoute)
 app.use("/api/v1/disk", diskRoute)
 app.use("/api/v1/all", allRoute)
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use("/api/v1/incidents", incidentsRoute)
 
 // Error 404
 app.use((req, res) => {
