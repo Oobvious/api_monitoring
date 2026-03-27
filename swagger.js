@@ -16,7 +16,10 @@ API de monitoring serveur permettant :
 
         servers: [
             {
-                url: "http://localhost:5000"
+                url: "http://localhost:5000",
+            },
+            {
+                url: "https://api.pichouri.eu",
             }
         ],
 
