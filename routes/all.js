@@ -59,8 +59,8 @@ const axios = require("axios")
 
 const router = express.Router()
 
-const TOKEN = "35|VASJNFV7cUlfF2tHQ2dYYTACjlqCrDkEKizZwfi75e7141a8"
-const APPLICATION_ID = "019d2e6b-a227-72ab-bf68-e9b3c8548ed9"
+const TOKEN = process.env.TOKEN
+const APPLICATION_ID = process.env.APPLICATION_ID
 
 function getSeverity(percent) {
     if (percent > 90) return "CRITICAL"
