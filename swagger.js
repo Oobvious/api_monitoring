@@ -34,7 +34,7 @@ API de monitoring serveur permettant :
                 bearerAuth: {
                     type: "http",
                     scheme: "bearer",
-                    bearerFormat: "JWT"
+                    bearerFormat: "TOKEN"
                 }
             }
         },
